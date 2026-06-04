@@ -63,7 +63,7 @@ export default async function HomePage() {
           ) : (
             <Image
               src={settings.heroBannerUrl}
-              alt="Sujood Mate Premium Prayer Mat"
+              alt="Namas Mate Premium Prayer Mat"
               fill
               className="object-cover object-center absolute inset-0 z-0"
               priority
@@ -71,7 +71,6 @@ export default async function HomePage() {
           )
         ) : (
           <div className="absolute inset-0 bg-primary z-0 flex items-center justify-center">
-            <Moon className="w-16 h-16 text-gold animate-pulse" />
           </div>
         )}
 
@@ -86,21 +85,18 @@ export default async function HomePage() {
             <span>Premium Islamic Devotional Craft</span>
           </div>
           
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-tight drop-shadow-2xl">
-            Align Your Heart, <br />
-            <span className="gold-text-gradient drop-shadow-xl">Cushion Your Prostration</span>
+          <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-6 tracking-wide drop-shadow-md">
+            Elevate Your <span className="gold-text-gradient">Sujood</span>
           </h1>
           
-          <p className="text-cream/90 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-serif drop-shadow-lg">
-            Experience spiritual tranquility and physical comfort with Sujood Mate.
-            Orthopedic memory foam combined with gold-threaded geometric designs
-            engineered to ease knee joint pressure and deep-focus your Salah.
+          <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light drop-shadow">
+            Experience spiritual comfort and alignment with our premium memory-foam prayer mats. Artfully crafted for modern Muslims.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-5 pt-4">
             <Link
               href="#product-section"
-              className="green-gradient hover:opacity-90 text-white font-bold px-10 py-4 rounded-full shadow-[0_0_20px_rgba(201,168,76,0.3)] transform hover:-translate-y-1 transition-all text-center flex items-center justify-center space-x-2 text-lg border border-gold/50"
+              className="green-gradient hover:opacity-90 text-white font-semibold px-10 py-4 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-center flex items-center justify-center space-x-2 text-lg border border-white/20"
             >
               <span>Order Now</span>
               <ArrowRight className="w-6 h-6" />
@@ -117,15 +113,14 @@ export default async function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-primary text-cream relative">
-        <div className="absolute inset-0 bg-[radial-gradient(#C9A84C_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+      <section id="features" className="py-20 bg-primary text-white relative border-t border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gold">
               Designed For Perfect Focus
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto"></div>
-            <p className="text-cream/80 font-serif text-lg">
+            <p className="text-[#D1C9BA] font-serif text-lg">
               Combining ancient aesthetic elegance with cutting-edge orthopedic support,
               helping you achieve peaceful and extended prostrations.
             </p>
@@ -133,36 +128,36 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="bg-[#122e22] border border-gold/20 p-8 rounded-2xl space-y-4 shadow-md hover:shadow-xl hover:border-gold/40 transition-all">
+            <div className="bg-[#023122] border border-gold/20 p-8 rounded-2xl space-y-4 shadow-md hover:shadow-xl hover:border-gold/40 transition-all">
               <div className="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl font-bold text-gold">Premium Quality Material</h3>
-              <p className="text-cream/70 text-sm leading-relaxed">
+              <p className="text-[#B5AFA1] text-sm leading-relaxed">
                 Handcrafted from luxury Turkish velvet, featuring intricate gold-threaded
                 motifs. Machine stitched with reinforced borders to prevent fraying and ensure durability.
               </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-[#122e22] border border-gold/20 p-8 rounded-2xl space-y-4 shadow-md hover:shadow-xl hover:border-gold/40 transition-all">
+            <div className="bg-[#023122] border border-gold/20 p-8 rounded-2xl space-y-4 shadow-md hover:shadow-xl hover:border-gold/40 transition-all">
               <div className="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl font-bold text-gold">Orthopedic Foam Core</h3>
-              <p className="text-cream/70 text-sm leading-relaxed">
+              <p className="text-[#B5AFA1] text-sm leading-relaxed">
                 Dual-layered high-density memory foam distributes weight evenly. Relieves pressure on
                 sensitive joints, including knees, shins, ankles, and wrists during Ruku and Sujood.
               </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-[#122e22] border border-gold/20 p-8 rounded-2xl space-y-4 shadow-md hover:shadow-xl hover:border-gold/40 transition-all">
+            <div className="bg-[#023122] border border-gold/20 p-8 rounded-2xl space-y-4 shadow-md hover:shadow-xl hover:border-gold/40 transition-all">
               <div className="w-12 h-12 rounded-xl bg-gold/20 text-gold flex items-center justify-center">
                 <Sparkles className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-xl font-bold text-gold">Anti-Slip Bottom Lining</h3>
-              <p className="text-cream/70 text-sm leading-relaxed">
+              <p className="text-[#B5AFA1] text-sm leading-relaxed">
                 Specially coated micro-grip underlay ensures the mat stays perfectly anchored to carpet,
                 hardwood, or tile floors, allowing complete focus without constant adjustments.
               </p>
@@ -175,29 +170,28 @@ export default async function HomePage() {
       <section id="product-section" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-primary">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gold">
               Our Signature Collections
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto"></div>
-            <p className="text-primary-light font-serif text-lg">
+            <p className="text-[#B5AFA1] font-serif text-lg">
               Select the variant and size that matches your personal sanctuary.
             </p>
           </div>
 
           {products.length === 0 ? (
             <div className="text-center py-12 text-primary-light">
-              <Moon className="w-12 h-12 mx-auto animate-pulse mb-3 opacity-50" />
-              <p className="text-xl font-medium">Coming Soon</p>
+              <p className="text-xl font-medium mt-4">Coming Soon</p>
             </div>
           ) : (
             <div className={`grid grid-cols-1 ${products.length === 1 ? 'max-w-md mx-auto' : 'md:grid-cols-2 lg:grid-cols-3'} gap-8`}>
               {products.map((prod: any) => (
                 <div
                   key={prod.id || prod._id}
-                  className="bg-white border border-primary/10 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col group"
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 hover:border-gold/30 transition-all duration-300 group flex flex-col"
                 >
                   {/* Image container */}
-                  <div className="relative aspect-[4/3] w-full bg-cream overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full bg-cream-dark overflow-hidden">
                     {prod.images && prod.images.length > 0 ? (
                       <Image
                         src={prod.images[0]}
@@ -222,22 +216,22 @@ export default async function HomePage() {
                   {/* Body Content */}
                   <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
                     <div>
-                      <h3 className="font-serif text-2xl font-bold text-primary mb-1 line-clamp-1">
+                      <h3 className="font-serif text-xl font-bold text-cream mb-1 line-clamp-1">
                         {prod.name}
                       </h3>
                       
                       <div className="flex items-center space-x-2 mb-3">
                         {prod.salePrice && prod.salePrice > 0 ? (
                           <>
-                            <span className="font-sans font-bold text-xl text-primary">₹{prod.salePrice}</span>
-                            <span className="font-sans font-medium text-sm text-primary-light/60 line-through">₹{prod.price}</span>
+                            <span className="font-sans font-bold text-xl text-gold">₹{prod.salePrice}</span>
+                            <span className="font-sans font-medium text-sm text-[#B5AFA1] line-through">₹{prod.price}</span>
                           </>
                         ) : (
-                          <span className="font-sans font-bold text-xl text-primary">₹{prod.price}</span>
+                          <span className="font-sans font-bold text-xl text-gold">₹{prod.price}</span>
                         )}
                       </div>
 
-                      <p className="text-primary-light/80 text-sm leading-relaxed line-clamp-3">
+                      <p className="text-[#999999] text-sm leading-relaxed line-clamp-3">
                         {prod.description}
                       </p>
                       {prod.variants && prod.variants.length > 0 && (
@@ -245,7 +239,7 @@ export default async function HomePage() {
                           {prod.variants.map((v: string) => (
                             <span
                               key={v}
-                              className="text-[10px] uppercase font-semibold tracking-wider text-primary-light bg-cream-dark px-2.5 py-1 rounded-full border border-primary/10"
+                              className="text-[10px] uppercase font-semibold tracking-wider text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200"
                             >
                               {v}
                             </span>
@@ -256,7 +250,7 @@ export default async function HomePage() {
 
                     <Link
                       href={`/product/${prod.id || prod._id}`}
-                      className="w-full mt-6 text-center green-gradient hover:opacity-90 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition-all flex items-center justify-center space-x-2"
+                      className="w-full mt-6 text-center green-gradient hover:opacity-90 text-white font-semibold py-3 px-6 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center space-x-2"
                     >
                       <ShoppingCart className="w-4 h-4 text-gold" />
                       <span>View Details</span>
@@ -273,11 +267,11 @@ export default async function HomePage() {
       <section id="how-to-order" className="py-20 bg-cream-dark relative border-t border-b border-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-primary">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-gold">
               Simple 3-Step Ordering
             </h2>
             <div className="w-24 h-1 bg-gold mx-auto"></div>
-            <p className="text-primary-light font-serif text-lg">
+            <p className="text-[#B5AFA1] font-serif text-lg">
               We process all orders securely and confirm manually via payment verification.
             </p>
           </div>
@@ -288,8 +282,8 @@ export default async function HomePage() {
               <div className="w-16 h-16 rounded-full bg-primary text-gold border-2 border-gold flex items-center justify-center font-serif text-2xl font-bold shadow-lg">
                 1
               </div>
-              <h3 className="font-serif text-xl font-bold text-primary">Choose Your Variant</h3>
-              <p className="text-primary-light/80 text-sm max-w-xs leading-relaxed">
+              <h3 className="font-serif text-xl font-bold text-cream">Choose Your Variant</h3>
+              <p className="text-[#999999] text-sm max-w-xs leading-relaxed">
                 Click on the mat of your choice, read its custom dimensions and features, and select your preferred color or style.
               </p>
             </div>
@@ -299,8 +293,8 @@ export default async function HomePage() {
               <div className="w-16 h-16 rounded-full bg-primary text-gold border-2 border-gold flex items-center justify-center font-serif text-2xl font-bold shadow-lg">
                 2
               </div>
-              <h3 className="font-serif text-xl font-bold text-primary">Scan QR to Pay</h3>
-              <p className="text-primary-light/80 text-sm max-w-xs leading-relaxed">
+              <h3 className="font-serif text-xl font-bold text-cream">Scan QR to Pay</h3>
+              <p className="text-[#999999] text-sm max-w-xs leading-relaxed">
                 Proceed to the order form, scan our secure static UPI QR code on your phone, and make the payment via any UPI app (GPay, PhonePe, Paytm).
               </p>
             </div>
@@ -310,8 +304,8 @@ export default async function HomePage() {
               <div className="w-16 h-16 rounded-full bg-primary text-gold border-2 border-gold flex items-center justify-center font-serif text-2xl font-bold shadow-lg">
                 3
               </div>
-              <h3 className="font-serif text-xl font-bold text-primary">Enter Transaction ID</h3>
-              <p className="text-primary-light/80 text-sm max-w-xs leading-relaxed">
+              <h3 className="font-serif text-xl font-bold text-cream">Enter Transaction ID</h3>
+              <p className="text-[#999999] text-sm max-w-xs leading-relaxed">
                 Fill in your delivery address, type in the UTR / Transaction ID from your banking app, and submit. We will verify and ship your order!
               </p>
             </div>

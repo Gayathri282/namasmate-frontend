@@ -111,21 +111,15 @@ export default function ProductClient({ product }: ProductClientProps) {
             <div className="flex flex-col space-y-2">
               <div className="flex items-center space-x-3">
                 {product.salePrice && product.salePrice > 0 ? (
-                  <>
-                    <span className="text-4xl font-extrabold text-primary">
-                      ₹{product.salePrice}
-                    </span>
-                    <span className="text-xl font-medium text-primary-light/60 line-through">
-                      ₹{product.price}
-                    </span>
-                    <span className="bg-red-600 text-white font-sans text-xs font-bold px-3 py-1 rounded-full shadow-md animate-pulse">
+                  <div className="flex items-center space-x-3">
+                    <span className="text-3xl font-bold text-gold">₹{product.salePrice}</span>
+                    <span className="text-lg text-slate-400 line-through">₹{product.price}</span>
+                    <span className="bg-red-100 text-red-700 font-bold text-xs px-2.5 py-1 rounded-full">
                       {Math.round(((product.price - product.salePrice) / product.price) * 100)}% OFF
                     </span>
-                  </>
+                  </div>
                 ) : (
-                  <span className="text-4xl font-extrabold text-primary">
-                    ₹{product.price}
-                  </span>
+                  <span className="text-3xl font-bold text-gold">₹{product.price}</span>
                 )}
               </div>
               <span className="text-xs uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full w-max mt-2">
@@ -176,7 +170,7 @@ export default function ProductClient({ product }: ProductClientProps) {
               href={`/order-form?productId=${product.id}${
                 selectedVariant ? `&variant=${encodeURIComponent(selectedVariant)}` : ""
               }`}
-              className="w-full text-center green-gradient hover:opacity-90 text-white font-bold py-4 px-8 rounded-2xl shadow-lg flex items-center justify-center space-x-3 transform hover:-translate-y-0.5 transition-all border border-gold/50"
+              className="w-full text-center green-gradient hover:opacity-90 text-white font-semibold py-4 px-8 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center space-x-3 transform hover:-translate-y-0.5 transition-all border border-primary-light/20"
             >
               <ShoppingBag className="w-5 h-5 text-gold" />
               <span>Buy Now (UPI Payment)</span>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
@@ -9,10 +9,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const oswald = Oswald({
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-cormorant", // Reusing the same variable name so it maps to font-serif automatically
+  variable: "--font-cormorant", // Keep variable name to map to font-serif
   display: "swap",
 });
 
@@ -39,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${oswald.variable}`}>
-      <body className="font-sans bg-[#FAF7F0] text-[#1B4332] min-h-screen flex flex-col antialiased">
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+      <body className="font-sans bg-cream text-primary-dark min-h-screen flex flex-col antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

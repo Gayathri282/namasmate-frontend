@@ -14,19 +14,19 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: "#1B4332",
-          dark: "#122e22",
-          light: "#2D6A4F",
-          hover: "#40916C",
+          DEFAULT: "#03432E",   // Royal Emerald Green
+          dark: "#012116",      // Deep Egyptian Green
+          light: "#077353",
+          hover: "#04573C",
         },
         gold: {
-          DEFAULT: "#C9A84C",
-          light: "#DFCA78",
-          dark: "#A3822E",
+          DEFAULT: "#D4AF37",   // Egyptian Gold
+          light: "#F3E5AB",
+          dark: "#AA8C2C",
         },
         cream: {
-          DEFAULT: "#FAF7F0",
-          dark: "#F4EFE3",
+          DEFAULT: "#FFFFFF",   // Pure White for contrast
+          dark: "#F4F0E6",
         },
       },
     },

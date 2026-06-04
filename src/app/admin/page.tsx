@@ -427,11 +427,15 @@ export default function AdminDashboardPage() {
   const pendingCount = orders.filter((o) => o.status === "Pending").length;
 
   // Wait until client is mounted to prevent hydration mismatch
-  if (!mounted || status === "loading") {
+  if (!mounted) {
+    return null; // Server renders nothing; client starts from the same empty state
+  }
+
+  if (status === "loading") {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen space-y-4">
-        {mounted && <Loader2 className="w-10 h-10 text-gold animate-spin" />}
-        {mounted && <p className="text-primary font-serif font-semibold">Verifying secure admin access...</p>}
+        <Loader2 className="w-10 h-10 text-gold animate-spin" />
+        <p className="text-primary font-serif font-semibold">Verifying secure admin access...</p>
       </div>
     );
   }
@@ -450,7 +454,7 @@ export default function AdminDashboardPage() {
               <Package className="w-5 h-5" />
             </span>
             <span className="font-serif text-2xl font-bold tracking-wide">
-              Sujood Mate <span className="text-gold">Admin</span>
+              Namas Mate <span className="text-gold">Admin</span>
             </span>
           </div>
 
