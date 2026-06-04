@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF7F0;
+  --foreground: #1B4332;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* Islamic Geometric Background Pattern */
+.bg-islamic-pattern {
+  background-color: #FAF7F0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%231B4332' fill-opacity='0.025'%3E%3Cpath d='M0 0h80v80H0z' fill='none'/%3E%3Cpath d='M40 0l10 30h30L55 50l10 30-25-20-25 20 10-30L0 30h30z'/%3E%3Cpath d='M0 0l5 15h15L8 25l5 15-13-10-13 10 5-15-12-10h15z' transform='translate(40,40) scale(0.5)'/%3E%3Cpath d='M0 0l5 15h15L8 25l5 15-13-10-13 10 5-15-12-10h15z' transform='translate(0,0) scale(0.5)'/%3E%3Cpath d='M0 0l5 15h15L8 25l5 15-13-10-13 10 5-15-12-10h15z' transform='translate(80,0) scale(0.5)'/%3E%3Cpath d='M0 0l5 15h15L8 25l5 15-13-10-13 10 5-15-12-10h15z' transform='translate(0,80) scale(0.5)'/%3E%3Cpath d='M0 0l5 15h15L8 25l5 15-13-10-13 10 5-15-12-10h15z' transform='translate(80,80) scale(0.5)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Golden Arabic Geometric Border Pattern */
+.border-gold-pattern {
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 12l6-6 6 6-6 6z M12 12l6-6 6 6-6 6z' fill='none' stroke='%23C9A84C' stroke-width='1.5'/%3E%3C/svg%3E") 30 repeat;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #C9A84C 0%, #DFCA78 50%, #A3822E 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #C9A84C 0%, #DFCA78 50%, #A3822E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.green-gradient {
+  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A3822E;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(250, 247, 240, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(27, 67, 50, 0.1);
+}
