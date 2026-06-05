@@ -24,6 +24,7 @@ export default function Navbar() {
             src="/logo.png"
             alt="Namas Mate Logo"
             fill
+            sizes="140px"
             className="object-cover scale-110"
             priority
           />

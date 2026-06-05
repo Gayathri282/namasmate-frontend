@@ -21,6 +21,7 @@ import {
   Package,
   Clock,
   QrCode,
+  Lock,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -672,7 +673,7 @@ export default function AdminDashboardPage() {
                   <tbody>
                     {filteredOrders.map((order, idx) => (
                       <tr
-                        key={order?._id?.toString() ?? `order-${idx}`}
+                        key={order.id || order._id || `order-${idx}`}
                         className="border-b border-primary/5 hover:bg-cream/40 text-primary text-xs"
                       >
                         <td className="p-4 space-y-1">
@@ -696,7 +697,7 @@ export default function AdminDashboardPage() {
                           <select
                             disabled={actionLoading}
                             value={order.status}
-                            onChange={(e) => handleUpdateOrderStatus(order._id, e.target.value)}
+                            onChange={(e) => handleUpdateOrderStatus(order.id || order._id, e.target.value)}
                             className={`px-3 py-1.5 rounded-lg font-bold border focus:outline-none text-[11px] ${
                               order.status === "Pending"
                                 ? "bg-red-50 border-red-200 text-red-700"
@@ -716,7 +717,7 @@ export default function AdminDashboardPage() {
                         <td className="p-4 text-center">
                           <button
                             disabled={actionLoading}
-                            onClick={() => handleSendConfirmationEmail(order._id)}
+                            onClick={() => handleSendConfirmationEmail(order.id || order._id)}
                             className="bg-primary hover:bg-primary-dark text-gold font-bold px-3 py-2 rounded-xl flex items-center justify-center space-x-1.5 transition-all w-full text-[10px]"
                             title="Send Manual Confirmation Email"
                           >
@@ -760,7 +761,7 @@ export default function AdminDashboardPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {products.map((prod, idx) => (
                   <div
-                    key={prod?._id?.toString() ?? `prod-${idx}`}
+                    key={prod.id || prod._id || `prod-${idx}`}
                     className="border border-primary/10 rounded-2xl p-5 flex space-x-4 hover:shadow-md transition-all bg-cream/20"
                   >
                     {/* Media Thumbnail */}
@@ -975,6 +976,77 @@ export default function AdminDashboardPage() {
                 </button>
               </form>
             )}
+
+            {/* Account Credentials Section */}
+            <div className="mt-10 pt-8 border-t border-primary/10">
+              <h3 className="font-serif text-xl font-bold text-primary pb-4">
+                Admin Account Credentials
+              </h3>
+              
+              {credError && (
+                <div className="mb-4 bg-red-50 text-red-700 p-3 rounded-xl border border-red-200 text-sm font-medium">
+                  {credError}
+                </div>
+              )}
+              {credSuccess && (
+                <div className="mb-4 bg-green-50 text-green-700 p-3 rounded-xl border border-green-200 text-sm font-medium">
+                  {credSuccess}
+                </div>
+              )}
+
+              <form onSubmit={handleUpdateCredentials} className="space-y-5">
+                <div className="space-y-1.5 max-w-md">
+                  <label className="block text-xs font-bold text-primary uppercase">
+                    Current Password <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    value={credCurrentPassword}
+                    onChange={(e) => setCredCurrentPassword(e.target.value)}
+                    placeholder="Enter current password to authorize changes"
+                    className="w-full px-4 py-3 border border-primary/20 rounded-xl focus:outline-none focus:border-gold text-primary font-medium text-sm bg-cream/10"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl">
+                  <div className="space-y-1.5">
+                    <label className="block text-xs font-bold text-primary uppercase">
+                      New Email <span className="normal-case text-primary-light/50 font-normal">(optional)</span>
+                    </label>
+                    <input
+                      type="email"
+                      value={credNewEmail}
+                      onChange={(e) => setCredNewEmail(e.target.value)}
+                      placeholder="Enter new admin email"
+                      className="w-full px-4 py-3 border border-primary/20 rounded-xl focus:outline-none focus:border-gold text-primary font-medium text-sm bg-cream/10"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="block text-xs font-bold text-primary uppercase">
+                      New Password <span className="normal-case text-primary-light/50 font-normal">(optional)</span>
+                    </label>
+                    <input
+                      type="password"
+                      value={credNewPassword}
+                      onChange={(e) => setCredNewPassword(e.target.value)}
+                      placeholder="Enter new secure password"
+                      className="w-full px-4 py-3 border border-primary/20 rounded-xl focus:outline-none focus:border-gold text-primary font-medium text-sm bg-cream/10"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={credLoading}
+                  className="bg-primary hover:bg-primary-dark text-gold font-bold px-6 py-3.5 rounded-xl text-xs transition-all flex items-center space-x-1.5 shadow mt-2"
+                >
+                  {credLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Lock className="w-4 h-4" />}
+                  <span>Update Credentials</span>
+                </button>
+              </form>
+            </div>
+
           </div>
         )}
       </main>

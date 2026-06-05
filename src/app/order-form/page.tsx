@@ -322,7 +322,7 @@ function OrderFormContent() {
                   Payment Verification
                 </h3>
                 <p className="text-xs text-primary-dark/80 leading-relaxed">
-                  Scan the QR code on the right with any UPI app, pay <strong>₹{product.price}</strong>, and enter your UTR / Transaction ID below to submit your order.
+                  Please scan the QR code on the right with any UPI app and proceed to pay <strong>₹{product.price}</strong>. After payment, enter your UTR / Transaction ID below to verify and submit your order.
                 </p>
                 <div>
                   <label htmlFor="transactionId" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
