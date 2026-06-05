@@ -74,6 +74,14 @@ export default function AdminDashboardPage() {
   const [imageUrlInput, setImageUrlInput] = useState("");
   const [videoUrlInput, setVideoUrlInput] = useState("");
 
+  // Security Settings State
+  const [credCurrentPassword, setCredCurrentPassword] = useState("");
+  const [credNewEmail, setCredNewEmail] = useState("");
+  const [credNewPassword, setCredNewPassword] = useState("");
+  const [credLoading, setCredLoading] = useState(false);
+  const [credError, setCredError] = useState("");
+  const [credSuccess, setCredSuccess] = useState("");
+
   // Cloudinary settings from next public env vars
   const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "demo";
   const UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "sujood_mate_preset";
@@ -324,11 +332,15 @@ export default function AdminDashboardPage() {
   // 3. SETTINGS HANDLERS
   const handleSettingsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!(session?.user as any)?.token) return;
     setActionLoading(true);
     try {
-      const res = await fetch(`/api/settings`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:5000"}/api/settings`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${(session?.user as any)?.token}`,
+        },
         body: JSON.stringify(settings),
       });
       if (res.ok) {
@@ -342,6 +354,49 @@ export default function AdminDashboardPage() {
       triggerFeedback("error", err.message);
     } finally {
       setActionLoading(false);
+    }
+  };
+
+  const handleUpdateCredentials = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!(session?.user as any)?.token) return;
+    setCredLoading(true);
+    setCredError("");
+    setCredSuccess("");
+
+    if (!credCurrentPassword) {
+      setCredError("Current password is required.");
+      setCredLoading(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:5000"}/api/auth/credentials`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${(session?.user as any)?.token}`,
+        },
+        body: JSON.stringify({
+          currentPassword: credCurrentPassword,
+          newEmail: credNewEmail || undefined,
+          newPassword: credNewPassword || undefined,
+        }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to update credentials");
+      }
+
+      setCredSuccess("Credentials updated! Logging out...");
+      setTimeout(() => {
+        signOut({ callbackUrl: "/admin/login" });
+      }, 2000);
+    } catch (err: any) {
+      setCredError(err.message);
+    } finally {
+      setCredLoading(false);
     }
   };
 

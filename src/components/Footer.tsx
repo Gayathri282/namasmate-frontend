@@ -38,7 +38,7 @@ export default function Footer() {
                 Namas <span className="text-gold">Mate</span>
               </span>
             </div>
-            <p className="text-[#B3D1C2] text-sm leading-relaxed">
+            <p className="text-primary-light text-sm leading-relaxed">
               Namas Mate is dedicated to crafting premium prayer mats that merge
               unparalleled joint support with historic Islamic geometric art,
               enriching your daily spiritual connection.
@@ -50,7 +50,7 @@ export default function Footer() {
             <h3 className="font-serif text-lg font-bold text-gold mb-4 tracking-wider">
               Navigation
             </h3>
-            <ul className="space-y-3 text-sm text-[#CDE0D7]">
+            <ul className="space-y-3 text-sm text-primary-light">
               <li>
                 <Link href="/" className="hover:text-gold transition-colors">
                   Home
@@ -74,7 +74,7 @@ export default function Footer() {
             <h3 className="font-serif text-lg font-bold text-gold mb-4 tracking-wider">
               Contact Us
             </h3>
-            <ul className="space-y-4 text-sm text-[#CDE0D7]">
+            <ul className="space-y-4 text-sm text-primary-light">
               <li className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
                 <span>{settings.contactPhone}</span>
@@ -101,7 +101,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright */}
-        <div className="border-t border-gold/20 pt-8 flex flex-col md:flex-row justify-between items-center text-[#9ABFA9] text-sm">
+        <div className="border-t border-gold/20 pt-8 flex flex-col md:flex-row justify-between items-center text-primary-light/70 text-sm">
           <p>
             &copy; {new Date().getFullYear()} Namas Mate. All rights reserved.
             Crafted for Comfort, Designed for Devotion.

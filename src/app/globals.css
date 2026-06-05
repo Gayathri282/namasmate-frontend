@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════════
+   ROOT TOKENS — Onyx & Tawny Gold / Smoked Amber
+   ═══════════════════════════════════════════════════════════════════ */
 :root {
-  --background: #FFFFFF;
-  --foreground: #03432E;
+  --background: #0E0D0C;
+  --foreground: #A89F95;
+
+  /* Gold scale */
+  --gold:        #D4A373;
+  --gold-light:  #e8c595;
+  --gold-dark:   #a67c30;
+
+  /* Glass config */
+  --glass-bg:    rgba(20, 18, 16, 0.65);
+  --glass-blur:  16px;
+  --glass-border:rgba(212, 163, 115, 0.15);
+  --glass-radius:28px;
 }
 
 body {
@@ -12,59 +26,114 @@ body {
   background: var(--background);
 }
 
-/* Base background */
+/* ═══════════════════════════════════════════════════════════════════
+   SMOKED AMBER GLASSMORPHISM UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Primary glass panel — used for arch panels, cards, modals */
+.glass-amber {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+}
+
+/* Floating nav glass — slightly lighter blur for overlays */
+.glass-nav {
+  background: rgba(14, 13, 12, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 163, 115, 0.14);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RADIAL GLOW — Panel aura (golden ambient light catch)
+   ═══════════════════════════════════════════════════════════════════ */
+.panel-aura {
+  position: absolute;
+  inset: -2rem;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(212, 163, 115, 0.09) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL BACKGROUND PATTERN
+   ═══════════════════════════════════════════════════════════════════ */
 .bg-islamic-pattern {
-  background-color: #FFFFFF;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2303432E' fill-opacity='0.03'%3E%3Cpath d='M0 0h80v80H0z' fill='none'/%3E%3Cpath d='M40 0l10 30h30L55 50l10 30-25-20-25 20 10-30L0 30h30z'/%3E%3Cpath d='M0 0l5 15h15L8 25l5 15-13-10-13 10 5-15-12-10h15z' transform='translate(40,40) scale(0.5)'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #0E0D0C;
+  background-image: radial-gradient(
+    ellipse 65% 55% at 50% 50%,
+    rgba(212, 163, 115, 0.08) 0%,
+    transparent 75%
+  );
 }
 
-/* Very dark section */
-.bg-royal-green {
-  background-color: #03432E;
-}
-
-/* Golden Arabic Geometric Border Pattern */
-.border-gold-pattern {
-  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 12l6-6 6 6-6 6z M12 12l6-6 6 6-6 6z' fill='none' stroke='%23D4AF37' stroke-width='1.5'/%3E%3C/svg%3E") 30 repeat;
-}
-
-/* Gold shimmer text for key headings */
+/* ═══════════════════════════════════════════════════════════════════
+   GOLD TEXT GRADIENT
+   ═══════════════════════════════════════════════════════════════════ */
 .gold-text-gradient {
-  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 40%, #AA8C2C 100%);
+  background: linear-gradient(135deg, #e8c595 0%, #D4A373 50%, #a67c30 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Gold button gradient */
+/* ═══════════════════════════════════════════════════════════════════
+   BUTTON GRADIENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Premium brushed dark bronze CTA */
 .gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%);
+  background: linear-gradient(135deg, #e8c595 0%, #D4A373 50%, #a67c30 100%);
 }
 
-/* Royal Green button gradient */
+/* Secondary action — deep taupe / onyx */
 .green-gradient {
-  background: linear-gradient(135deg, #03432E 0%, #077353 100%);
+  background: linear-gradient(135deg, #5c4a3c 0%, #3d2f24 60%, #2a1f18 100%);
 }
 
-/* Custom Scrollbar */
+/* Accent gold section backgrounds */
+.bg-royal-green {
+  background-color: #D4A373;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BORDER PATTERN ACCENT
+   ═══════════════════════════════════════════════════════════════════ */
+.border-gold-pattern {
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 12l6-6 6 6-6 6z M12 12l6-6 6 6-6 6z' fill='none' stroke='%23D4A373' stroke-width='1.5'/%3E%3C/svg%3E") 30 repeat;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PREMIUM SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════ */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #0E0D0C;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: linear-gradient(to bottom, #D4A373, #a67c30);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #AA8C2C;
+  background: #D4A373;
 }
 
-/* Glassmorphism utility */
+/* ═══════════════════════════════════════════════════════════════════
+   LEGACY .glass CLASS (kept for backward compat)
+   ═══════════════════════════════════════════════════════════════════ */
 .glass {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(18, 18, 20, 0.70);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 163, 115, 0.18);
 }

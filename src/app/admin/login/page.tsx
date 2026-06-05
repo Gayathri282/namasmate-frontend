@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
           </div>
           <h1 className="font-serif text-3xl font-bold text-primary">Admin Portal</h1>
           <p className="text-primary-light/70 text-xs font-semibold uppercase tracking-wider">
-            Sujood Mate Management
+            Namas Mate Management
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@sujoodmate.com"
+                placeholder="admin@namasmate.com"
                 className="w-full pl-10 pr-4 py-3 border border-primary/20 rounded-xl focus:outline-none focus:border-gold text-primary font-medium text-sm bg-cream/10"
               />
             </div>
@@ -138,11 +138,7 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        <div className="text-center pt-2 text-[10px] text-primary-light/50 font-serif leading-relaxed">
-          Default seeded credentials:<br />
-          Email: <span className="font-semibold text-primary">admin@sujoodmate.com</span><br />
-          Password: <span className="font-semibold text-primary">AdminPassword123</span>
-        </div>
+
       </div>
     </div>
   );

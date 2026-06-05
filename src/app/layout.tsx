@@ -1,35 +1,48 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
+import Navbar from "@/components/Navbar";
 
-const inter = Inter({
+// ── Serif: Cormorant Garamond — elegant, wide-tracked luxury serif ──
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif",
   display: "swap",
 });
 
-const outfit = Outfit({
+// ── Sans: Inter — clean, modern, legible body copy ──
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-cormorant", // Keep variable name to map to font-serif
+  variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Sujood Mate | Premium Orthopedic Prayer Mats",
-  description: "Experience spiritual comfort and alignment with our premium memory-foam prayer mats. Artfully crafted with rich Islamic geometric patterns.",
-  keywords: "prayer mat, sujood mate, orthopedic prayer mat, memory foam sujood mat, islamic gifts, premium prayer mat",
+  title: "Namas Mate | Premium Leather Prayer Stool",
+  description:
+    "Experience spiritual comfort with our Contemporary Leather Prayer Stool — handcrafted Aniline leather, engineered matte-black frame, sized for devotion.",
+  keywords:
+    "prayer stool, namas mate, kneeling stool, leather prayer stool, muslim prayer accessories, premium devotion",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Sujood Mate - Premium Orthopedic Prayer Mats",
-    description: "Experience spiritual comfort and alignment with our premium memory-foam prayer mats.",
+    title: "Namas Mate — Premium Devotion",
+    description:
+      "Handcrafted contemporary leather prayer stool. Smoked amber. Matte black frame. Polished gold fasteners.",
     type: "website",
-    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Sujood Mate Logo" }],
+    images: [
+      {
+        url: "/logo.png",
+        width: 1024,
+        height: 1024,
+        alt: "Namas Mate Logo",
+      },
+    ],
   },
 };
 
@@ -39,9 +52,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body className="font-sans bg-cream text-primary-dark min-h-screen flex flex-col antialiased">
-        <Providers>{children}</Providers>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${inter.variable}`}
+    >
+      <body
+        className="font-sans antialiased min-h-screen flex flex-col"
+        style={{ background: "#0E0D0C", color: "#A89F95" }}
+      >
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

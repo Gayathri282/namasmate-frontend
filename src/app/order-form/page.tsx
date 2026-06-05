@@ -142,17 +142,17 @@ function OrderFormContent() {
 
   if (success) {
     return (
-      <div className="max-w-2xl mx-auto bg-white border border-primary/10 rounded-3xl p-8 text-center space-y-6 shadow-xl my-12">
-        <div className="w-20 h-20 bg-green-100 text-primary-light rounded-full flex items-center justify-center mx-auto shadow-inner">
+      <div className="max-w-2xl mx-auto bg-cream border border-gold/15 rounded-3xl p-8 text-center space-y-6 shadow-xl my-12">
+        <div className="w-20 h-20 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto border border-gold/20 shadow-inner">
           <CheckCircle2 className="w-12 h-12 stroke-[2.5]" />
         </div>
-        <h1 className="font-serif text-3xl font-bold text-primary">Order Submitted Successfully!</h1>
-        <p className="text-primary-light/90 max-w-md mx-auto leading-relaxed">
+        <h1 className="font-serif text-3xl font-bold text-primary-dark">Order Submitted Successfully!</h1>
+        <p className="text-primary-dark/80 max-w-md mx-auto leading-relaxed">
           Assalamu Alaikum! Your order has been registered and is currently under review.
           We will verify your payment of <strong>₹{product.price}</strong> using Transaction ID <strong>{formData.transactionId}</strong>
           and send you a confirmation email at <strong>{formData.email}</strong> once verified.
         </p>
-        <div className="border-t border-primary/10 pt-6 font-serif text-gold font-semibold italic">
+        <div className="border-t border-primary-dark/10 pt-6 font-serif text-gold font-semibold italic">
           JazakAllah Khair for shopping with Sujood Mate!
         </div>
         <div>
@@ -174,7 +174,7 @@ function OrderFormContent() {
       <div>
         <Link
           href={product ? `/product/${product._id}` : "/"}
-          className="inline-flex items-center space-x-2 text-primary hover:text-gold font-medium transition-colors group"
+          className="inline-flex items-center space-x-2 text-primary-light hover:text-gold font-medium transition-colors group"
         >
           <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
           <span>Back to product details</span>
@@ -191,8 +191,8 @@ function OrderFormContent() {
       {product && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Form details */}
-          <div className="lg:col-span-7 bg-white border border-primary/10 rounded-3xl p-6 sm:p-8 shadow-md">
-            <h2 className="font-serif text-2xl font-bold text-primary mb-6">
+          <div className="lg:col-span-7 bg-cream border border-gold/15 rounded-3xl p-6 sm:p-8 shadow-md">
+            <h2 className="font-serif text-2xl font-bold text-primary-dark mb-6">
               Shipping & Delivery Details
             </h2>
 
@@ -206,7 +206,7 @@ function OrderFormContent() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="customerName" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                  <label htmlFor="customerName" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                     Full Name
                   </label>
                   <input
@@ -217,11 +217,11 @@ function OrderFormContent() {
                     value={formData.customerName}
                     onChange={handleInputChange}
                     placeholder="Enter your full name"
-                    className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                  <label htmlFor="phone" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                     Phone Number
                   </label>
                   <input
@@ -232,13 +232,13 @@ function OrderFormContent() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="e.g. 9876543210"
-                    className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                <label htmlFor="email" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                   Email Address
                 </label>
                 <input
@@ -249,12 +249,12 @@ function OrderFormContent() {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="name@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm"
                 />
               </div>
 
               <div>
-                <label htmlFor="address" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                <label htmlFor="address" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                   Shipping Address
                 </label>
                 <textarea
@@ -265,13 +265,13 @@ function OrderFormContent() {
                   value={formData.address}
                   onChange={handleInputChange}
                   placeholder="Apartment, Street address, landmarks..."
-                  className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm resize-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label htmlFor="city" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                  <label htmlFor="city" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                     City
                   </label>
                   <input
@@ -282,11 +282,11 @@ function OrderFormContent() {
                     value={formData.city}
                     onChange={handleInputChange}
                     placeholder="e.g. Bangalore"
-                    className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm"
                   />
                 </div>
                 <div>
-                  <label htmlFor="state" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                  <label htmlFor="state" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                     State
                   </label>
                   <input
@@ -297,11 +297,11 @@ function OrderFormContent() {
                     value={formData.state}
                     onChange={handleInputChange}
                     placeholder="e.g. Karnataka"
-                    className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm"
                   />
                 </div>
                 <div>
-                  <label htmlFor="pincode" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                  <label htmlFor="pincode" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                     Pincode
                   </label>
                   <input
@@ -312,20 +312,20 @@ function OrderFormContent() {
                     value={formData.pincode}
                     onChange={handleInputChange}
                     placeholder="e.g. 560001"
-                    className="w-full px-4 py-3 rounded-xl border border-primary/20 focus:outline-none focus:border-gold text-primary font-medium placeholder:text-primary-light/40 bg-cream/30 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-gold/20 focus:outline-none focus:border-gold text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/50 text-sm"
                   />
                 </div>
               </div>
 
-              <div className="border-t border-primary/10 pt-6 space-y-4">
-                <h3 className="font-serif text-xl font-bold text-primary">
+              <div className="border-t border-primary-dark/10 pt-6 space-y-4">
+                <h3 className="font-serif text-xl font-bold text-primary-dark">
                   Payment Verification
                 </h3>
-                <p className="text-xs text-primary-light/80 leading-relaxed">
+                <p className="text-xs text-primary-dark/80 leading-relaxed">
                   Scan the QR code on the right with any UPI app, pay <strong>₹{product.price}</strong>, and enter your UTR / Transaction ID below to submit your order.
                 </p>
                 <div>
-                  <label htmlFor="transactionId" className="block text-xs font-bold text-primary uppercase mb-1.5">
+                  <label htmlFor="transactionId" className="block text-xs font-bold text-primary-dark/80 uppercase mb-1.5">
                     UTR / Transaction ID
                   </label>
                   <input
@@ -336,7 +336,7 @@ function OrderFormContent() {
                     value={formData.transactionId}
                     onChange={handleInputChange}
                     placeholder="Enter 12-digit UTR or Transaction ID"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gold focus:outline-none focus:border-gold-dark text-primary font-medium placeholder:text-primary-light/40 bg-cream/10 text-sm"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gold focus:outline-none focus:border-gold/80 text-primary-dark font-medium placeholder:text-primary-dark/30 bg-white/60 text-sm"
                   />
                 </div>
               </div>
@@ -364,13 +364,13 @@ function OrderFormContent() {
           {/* Right Column: Checkout Summary & QR Code */}
           <div className="lg:col-span-5 space-y-6">
             {/* Order Summary Box */}
-            <div className="bg-white border border-primary/10 rounded-3xl p-6 shadow-md space-y-4">
-              <h3 className="font-serif text-lg font-bold text-primary pb-2 border-b border-primary/5 flex items-center space-x-2">
+            <div className="bg-cream border border-gold/15 rounded-3xl p-6 shadow-md space-y-4">
+              <h3 className="font-serif text-lg font-bold text-primary-dark pb-2 border-b border-gold/10 flex items-center space-x-2">
                 <ShoppingCart className="w-5 h-5 text-gold" />
                 <span>Order Summary</span>
               </h3>
               <div className="flex items-center space-x-4">
-                <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-cream flex-shrink-0 border border-primary/5">
+                <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-cream-dark flex-shrink-0 border border-gold/15">
                   {product.images && product.images.length > 0 ? (
                     <Image
                       src={product.images[0]}
@@ -383,19 +383,19 @@ function OrderFormContent() {
                   )}
                 </div>
                 <div>
-                  <h4 className="font-serif font-bold text-primary text-sm leading-snug">
+                  <h4 className="font-serif font-bold text-primary-dark text-sm leading-snug">
                     {product.name}
                   </h4>
                   {selectedVariant && (
-                    <span className="text-[10px] text-primary-light bg-cream px-2 py-0.5 rounded-full border border-primary/5 font-semibold">
+                    <span className="text-[10px] text-primary-dark/80 bg-white/50 px-2.5 py-0.5 rounded-full border border-gold/15 font-semibold">
                       Color/Style: {selectedVariant}
                     </span>
                   )}
                 </div>
               </div>
-              <div className="border-t border-primary/5 pt-4 flex justify-between items-center text-primary font-bold">
+              <div className="border-t border-gold/15 pt-4 flex justify-between items-center text-primary-dark font-bold">
                 <span>Total Amount:</span>
-                <span className="text-xl text-gold">₹{product.price}</span>
+                <span className="text-xl text-primary">₹{product.price}</span>
               </div>
             </div>
 
@@ -432,7 +432,7 @@ function OrderFormContent() {
                   <span className="text-[10px] uppercase font-bold text-gold tracking-widest block">
                     UPI Address
                   </span>
-                  <div className="inline-flex items-center bg-[#122e22] text-cream border border-gold/20 px-3 py-1.5 rounded-xl text-xs space-x-2 shadow-inner">
+                  <div className="inline-flex items-center bg-primary-dark text-cream border border-gold/20 px-3 py-1.5 rounded-xl text-xs space-x-2 shadow-inner">
                     <span className="font-mono font-medium">{settings.upiId}</span>
                     <button
                       type="button"
