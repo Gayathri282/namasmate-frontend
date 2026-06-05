@@ -13,15 +13,15 @@ interface RouteParams {
 export async function PUT(req: NextRequest, { params }: RouteParams) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !(session.user as any).accessToken) {
+    const token = (session?.user as any)?.accessToken;
+    if (!session || !token) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const { id } = params;
-    const token = (session.user as any).accessToken;
     const body = await req.json();
 
-    const res = await fetch(`${BACKEND_URL}/api/products/${id}`, {
+    const backendRes = await fetch(`${BACKEND_URL}/api/products/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -30,13 +30,24 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
       body: JSON.stringify(body),
     });
 
-    const data = await res.json();
-    if (!res.ok) {
-      return NextResponse.json({ error: data.error || "Failed to update product" }, { status: res.status });
+    const text = await backendRes.text();
+    let data: any;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return NextResponse.json(
+        { error: `Backend returned non-JSON (status ${backendRes.status}): ${text.slice(0, 200)}` },
+        { status: 502 }
+      );
+    }
+
+    if (!backendRes.ok) {
+      return NextResponse.json({ error: data.error || "Failed to update product" }, { status: backendRes.status });
     }
 
     return NextResponse.json(data);
   } catch (error: any) {
+    console.error("[PUT /api/products/:id] Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -44,27 +55,38 @@ export async function PUT(req: NextRequest, { params }: RouteParams) {
 export async function DELETE(req: NextRequest, { params }: RouteParams) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session || !(session.user as any).accessToken) {
+    const token = (session?.user as any)?.accessToken;
+    if (!session || !token) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const { id } = params;
-    const token = (session.user as any).accessToken;
 
-    const res = await fetch(`${BACKEND_URL}/api/products/${id}`, {
+    const backendRes = await fetch(`${BACKEND_URL}/api/products/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    const data = await res.json();
-    if (!res.ok) {
-      return NextResponse.json({ error: data.error || "Failed to delete product" }, { status: res.status });
+    const text = await backendRes.text();
+    let data: any;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      return NextResponse.json(
+        { error: `Backend returned non-JSON (status ${backendRes.status})` },
+        { status: 502 }
+      );
+    }
+
+    if (!backendRes.ok) {
+      return NextResponse.json({ error: data.error || "Failed to delete product" }, { status: backendRes.status });
     }
 
     return NextResponse.json(data);
   } catch (error: any) {
+    console.error("[DELETE /api/products/:id] Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

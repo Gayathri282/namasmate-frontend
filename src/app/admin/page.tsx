@@ -332,14 +332,15 @@ export default function AdminDashboardPage() {
   // 3. SETTINGS HANDLERS
   const handleSettingsSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!(session?.user as any)?.token) return;
+    const accessToken = (session?.user as any)?.accessToken;
+    if (!accessToken) return;
     setActionLoading(true);
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:5000"}/api/settings`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${(session?.user as any)?.token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(settings),
       });
@@ -359,7 +360,8 @@ export default function AdminDashboardPage() {
 
   const handleUpdateCredentials = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!(session?.user as any)?.token) return;
+    const accessToken = (session?.user as any)?.accessToken;
+    if (!accessToken) return;
     setCredLoading(true);
     setCredError("");
     setCredSuccess("");
@@ -375,7 +377,7 @@ export default function AdminDashboardPage() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${(session?.user as any)?.token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
           currentPassword: credCurrentPassword,

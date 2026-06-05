@@ -19,12 +19,12 @@ export default function Navbar() {
     <header className="flex flex-col items-center w-full pt-10 pb-8 z-20 relative">
       {/* Logo Image */}
       <Link href="/" aria-label="Namas Mate Home">
-        <div className="relative w-[160px] h-[120px] mb-2 transition-opacity hover:opacity-90">
+        <div className="relative w-[140px] h-[90px] mb-2 overflow-hidden transition-opacity hover:opacity-90">
           <Image
             src="/logo.png"
             alt="Namas Mate Logo"
             fill
-            className="object-contain"
+            className="object-cover scale-110"
             priority
           />
         </div>
